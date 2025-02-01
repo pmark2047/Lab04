@@ -11,6 +11,9 @@
 
 #include "unitTest.h"
 #include "velocity.h"
+#include <iostream>
+
+using namespace std;
 
 /*********************************************
  * TEST VELOCITY
@@ -205,6 +208,7 @@ private:
       assertEquals(v.dx, 0.0);
       assertEquals(v.dy, 4.5);
       assertEquals(s, 4.5);
+      
    }  // teardown
    
    /*********************************************
@@ -226,6 +230,7 @@ private:
       assertEquals(v.dx, -2.3);
       assertEquals(v.dy, 0.0);
       assertEquals(s, 2.3);
+      
    }  // teardown
 
    /*********************************************
@@ -247,6 +252,7 @@ private:
       assertEquals(v.dx, 0.0);
       assertEquals(v.dy, -4.5);
       assertEquals(s, 4.5);
+      
    }  // teardown
    
    /*********************************************
@@ -268,6 +274,7 @@ private:
       assertEquals(v.dx, 3.0);
       assertEquals(v.dy, -4.0);
       assertEquals(s, 5.0);
+      
    }  // teardown
    
    /*****************************************************************
@@ -552,6 +559,9 @@ private:
       assertEquals(a.ddx, 0.0);
       assertEquals(a.ddy, 0.0);
       assertEquals(t, 0.0);
+      
+      
+      
    }  // teardown
 
    /*********************************************
@@ -578,6 +588,8 @@ private:
       assertEquals(a.ddx, 6.0);
       assertEquals(a.ddy, 7.0);
       assertEquals(t, 0.0);
+      
+      
    }  // teardown
 
    /*********************************************
@@ -604,6 +616,8 @@ private:
       assertEquals(a.ddx, 6.0);
       assertEquals(a.ddy, 7.0);
       assertEquals(t, 1.0);
+      
+     
    }  // teardown
 
    /*********************************************
@@ -630,6 +644,8 @@ private:
       assertEquals(a.ddx, 3.0);
       assertEquals(a.ddy, 5.0);
       assertEquals(t, 4.0);
+      
+     
    }  // teardown
 
 };

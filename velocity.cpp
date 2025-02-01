@@ -18,10 +18,10 @@
  * VELOCITY : ADD
  *  v = v_0 + a t
  *********************************************/
-void Velocity::add(const Acceleration& acceleration, double time)
+void Velocity::add(const Acceleration & acceleration, double time)
 {
-   dx = 99.9;
-   dy = 88.8;
+   dx = dx + acceleration.getDDX() * time;
+   dy = dy + acceleration.getDDY() * time;
 }
 
 /*********************************************
@@ -30,7 +30,7 @@ void Velocity::add(const Acceleration& acceleration, double time)
  *********************************************/
 double Velocity::getSpeed() const
 {
-   double s = sqrt(dx * dx) + (dy * dy);
+   double s = sqrt((dx * dx) + (dy * dy));
    return s;
 }
 
