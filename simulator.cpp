@@ -25,10 +25,10 @@ public:
    Simulator(const Position & posUpperRight) : ground(posUpperRight) {}
        
    // display stuff on the screen
-   void display();
+   void display(Position posLander, Position posStar, Angle a, int phase);
   
-//   unsigned char phase;
-//   Angle a;
+   unsigned char phase;
+   Angle a;
    Ground ground;
 };
 
@@ -36,20 +36,19 @@ public:
  * DISPLAY
  * Draw on the screen
  **********************************************************/
-void Simulator::display()
+void Simulator::display(Position posLander, Position posStar, Angle a, int phase)
 {
    ogstream gout;
 
    // draw the ground
-// ground.draw(gout);
+ground.draw(gout);
 
    // draw the lander
-// gout.drawLander(posLander, a.getRadians());
+gout.drawLander(posLander, a.getRadians());
 
    // draw a star
-// gout.drawStar(posStar, phase);
+gout.drawStar(posStar, phase);
 }
-
 
 /*************************************
  * CALLBACK
@@ -60,17 +59,23 @@ void callBack(const Interface* pUI, void* p)
    // the first step is to cast the void pointer into a game object. This
    // is the first step of every single callback function in OpenGL. 
    Simulator * pSimulator = (Simulator *)p;
+   Position posLander(200.0, 200.0);
+   Position posStar(250, 300);
+   static Angle a;
+   static int phase = 128;
 
    // draw the game
-   pSimulator->display();
+   pSimulator->display(posLander, posStar, a, phase);
 
    // handle input
    if (pUI->isRight())
+      a.add(-0.5);
       ;   // rotate right here
    if (pUI->isLeft())
+      a.add(0.5);
       ;   // rotate left here
 
-
+   phase +=1;
 }
 
 /*********************************
